@@ -9,10 +9,6 @@ import org.bukkit.ChatColor;
 import lombok.AllArgsConstructor;
 
 public interface Setting<E extends Enum<E> & Setting<E>>{
-
-	/*
-	 * GENERAL STUFF UP HERE
-	 */
 	
 	Object getData();
 	
