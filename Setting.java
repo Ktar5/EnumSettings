@@ -10,12 +10,18 @@ import lombok.AllArgsConstructor;
 
 public interface Setting<E extends Enum<E> & Setting<E>>{
 
+	/*
+	 * GENERAL STUFF UP HERE
+	 */
+	
 	Object getData();
 	
 	default public <T> T as(Class<T> tClass) {
         if (tClass.isPrimitive()) {
             throw new IllegalArgumentException(tClass.getSimpleName() + " is of a primitive type. Disallowed type.");
         }
+        //Yeah, we /could/ use the is method below, but for
+        //the sake of micro-optimization, we're not.
         if (!tClass.isInstance(getData())) {
             throw new IllegalArgumentException(this + " is not of type " + tClass.getSimpleName() + "\n Has data of " + String.valueOf(getData()));
         }
