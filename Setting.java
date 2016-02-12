@@ -16,6 +16,7 @@ public interface Setting<E extends Enum<E> & Setting<E>>{
         if (tClass.isPrimitive()) {
             throw new IllegalArgumentException(tClass.getSimpleName() + " is of a primitive type. Disallowed type.");
         }
+        //test
         //Yeah, we /could/ use the is method below, but for
         //the sake of micro-optimization, we're not.
         if (!tClass.isInstance(getData())) {
